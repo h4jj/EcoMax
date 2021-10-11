@@ -1096,7 +1096,10 @@
 #banana {
     height: 70%;
     margin-top: 35px;
+    max-height: 150px;
 }
+
+
 
 .pricing-container {
     display: flex;
