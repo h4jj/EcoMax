@@ -72,21 +72,40 @@
                     </h1>
                     <h2>Online grocery</h2>
                     <div class="mycart-product-container">
-                        <p>Shopping Cart is Empty</p>
+                        <div class="mycart-item-container">
+                           <h2 class="mycart-item-title">Green Apple</h2>
+                           <img src="../images/FruitsVeggies/greenApple.png" alt="" class="mycart-item-image"> 
+                           <div id="mycart-control" class="generic-product-quantity-container tablet mobile">
+                                <button class="quantity-button">+</button>
+                                <p class="quantity-text">1</p>
+                                <button class="quantity-button">-</button>
+                            </div>
+                            <h3 class="mycart-item-price">$0.59</h3>
+                        </div>
+                        <div class="mycart-item-container">
+                            <h2 class="mycart-item-title">Gallon of Milk</h2>
+                            <img src="../images/DairyEggs/milk.png" alt="" class="mycart-item-image"> 
+                            <div id="mycart-controltwo" class="generic-product-quantity-container tablet mobile">
+                                 <button class="quantity-button">+</button>
+                                 <p class="quantity-text">1</p>
+                                 <button class="quantity-button">-</button>
+                             </div>
+                             <h3 class="mycart-item-price">$4</h3>
+                         </div>
                     </div>
                 </section>
                 <section class="mycart-right mobile">
                     <h1>Cart Summary</h1>
                     <div class="payment-container">
-                        <p>Subtotal</p>
+                        <p >Subtotal</p>
                         <p>QST</p>
-                        <p>GST</p>
+                        <p >GST</p>
                         <p>Delivery Fees</p>
                     </div>
                     <div class="payment-amount">
-                        <p>$0.00</p>
-                        <p>$0.00</p>
-                        <p>$0.00</p>
+                        <p class="subtotal">$0.00</p>
+                        <p class="gst">$0.00</p>
+                        <p class="qst">$0.00</p>
                         <p>$5.00</p>
                     </div>
                     <h3>Total</h3>
@@ -97,6 +116,7 @@
         </div>
     </main>
     <script src="../js/navbar.js"></script>
+    <script src="../js/myCart.js"></script>
     <footer>
         <div class="footer-main-container mobile">
             <div class="footer-delivery">

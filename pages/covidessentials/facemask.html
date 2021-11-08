@@ -66,9 +66,9 @@
             <div class="generic-product-container mobile tablet">
                 <div class="generic-product-image-container mobile tablet">
                     <img src="../../images/CovidEssentials/facemask.png" alt="" class="generic-product-image mobile">
-                    <form action="" class="generic-product-quantity">
-                        <input type="number" min="1" max="15" placeholder="Quantity 1-15" class="generic-product-input">
-                    </form>
+                    <div class="final-price-container">
+                        <p class="generic-product-final-price mobile">Total Price: $0</p>
+                    </div>
                     <div class="generic-select-container">
                         <select  class="generic-product-size">
                             <option value="" disabled="" selected="">Weight</option>
@@ -77,28 +77,36 @@
                     </div>
                 </div>
                 <div class="generic-product-right-container tablet mobile">
-                    <div class="generic-product-title-container">
+                    <div class="generic-product-title-container tablet mobile">
                         <h1 class="generic-product-title">Face Mask</h1>
                         <p class="generic-product-text">SOLD INDIVIDUALLY</p>
                     </div>
-                    <div class="generic-product-pricing-container">
+                    <div class="generic-product-pricing-container tablet mobile">
                         <h1 class="generic-product-pricing">$0.25 ea</h1>
                         <div class="generic-product-pricing-text">$0.25 for each face mask</div>
                     </div>
-                    <div class="generic-product-button-container">
-                        <img src="../../images/addToCart.svg" alt="" class="generic-product-button-image">
-                        <p class="generic-product-button-text">ADD</p>
+                    <div class="generic-product-quantity-container tablet mobile">
+                        <button class="quantity-button">+</button>
+                        <p class="quantity-text">0</p>
+                        <button class="quantity-button">-</button>
+                        <div class="generic-product-button-container">
+                            <img src="../../images/addToCart.svg" alt="" class="generic-product-button-image">
+                            <p class="generic-product-button-text">ADD</p>
+                        </div>
                     </div>
-                    <div class="generic-product-description-container">
-                        <h2 class="generic-product-description-title">
-                            Product Description
-                        </h2>
-                        <div class="generic-product-description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio eaque dignissimos perferendis sunt sit id, facilis eligendi. Architecto labore ab inventore ut, atque ipsum explicabo voluptas aspernatur in sequi nam.</div>
+                    <div class="generic-product-description-container tablet mobile">
+                        <button class="generic-product-accordion">More description</button>
+                        <div class="generic-product-panel">
+                            <p>Freshest bananas only at EcoMax!</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
     <script src="../../js/navbar.js"></script>
+    <script src="../../js/more-description.js"></script>
+    <script src="../../js/quantity.js"></script>
+    <script src="../../js/addToCart.js"></script>
 </body>
 </html>
