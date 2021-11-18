@@ -854,7 +854,7 @@ html {
     display: grid;
     grid-template-rows: 220px 1fr;
     grid-template-columns: 20vw 1fr 20vw;
-    height: 820px;
+    height: calc(100vh - 170px);
     background-color: rgba(230, 224, 224, 0.8);
 }
 

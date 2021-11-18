@@ -9,9 +9,15 @@ var str = finalPriceText.innerHTML.match(/\d+\.{0,1}\d{0,2}/);
 var finalPriceNumber= parseFloat(str[0]);
 const whiteToastPrice = 4.0;
 
+let counter = localStorage.getItem('counter')
+quantityText.innerHTML = String(counter)
+console.log(String(counter))
+let tempPrice = finalPrice.innerHTML.match(/\d+\.{0,1}\d{0,2}/)
+finalPrice.innerHTML = finalPrice.innerHTML.replace(tempPrice[0], (parseFloat(counter)*finalPriceNumber).toFixed(2).toString());
+
 quantityButton[0].addEventListener('click', () => {
     //alert(finalPriceNumber);
-    numb = parseInt(numb) + 1
+    numb = parseInt(quantityText.innerHTML) + 1
     let tempPrice = finalPrice.innerHTML.match(/\d+\.{0,1}\d{0,2}/)
     
     if(selectWeight.options[selectWeight.options.selectedIndex].innerHTML == "Singular") {
@@ -27,12 +33,14 @@ quantityButton[0].addEventListener('click', () => {
         finalPrice.innerHTML = finalPrice.innerHTML.replace(tempPrice[0], (finalPriceNumber*parseFloat(numb)).toFixed(2).toString());
     }
     
+    localStorage.setItem('counter', numb);
+    console.log(localStorage.getItem('counter'))
     quantityText.innerHTML = numb.toString();
 })
 
 quantityButton[1].addEventListener('click', () => {
-    if(parseInt(numb) > 0){
-        numb = parseInt(numb) - 1;
+    if(parseInt(quantityText.innerHTML) > 0){
+        numb = parseInt(quantityText.innerHTML) - 1;
     }
 
     let tempPrice = finalPrice.innerHTML.match(/\d+\.{0,1}\d{0,2}/)
@@ -50,6 +58,8 @@ quantityButton[1].addEventListener('click', () => {
         finalPrice.innerHTML = finalPrice.innerHTML.replace(tempPrice[0], (finalPriceNumber*parseFloat(numb)).toFixed(2).toString());
     }
 
+    localStorage.setItem('counter', numb);
+    console.log(localStorage.getItem('counter'))
     quantityText.innerHTML = numb.toString();
 })
 
