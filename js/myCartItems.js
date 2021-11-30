@@ -71,7 +71,7 @@ else {
 
 let removeCartItem = document.getElementsByClassName("remove-cart-item");
 let myCartItemContainer = document.getElementsByClassName("mycart-item-container");
-
+let copyArr = [...addToCartArray];
 myCartContainer.addEventListener('click', (e) => {
     for(var i=0; i< removeCartItem.length; i++){
         if(e.target == removeCartItem[i]){
