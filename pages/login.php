@@ -78,6 +78,7 @@ if(isset($_POST['submit'])) {
                         <a class="mycart-link" href="./myCart.html">
                             <span class="mycart-title">My Cart</span>
                             <img src="../images/addToCart.svg" alt="" class="shopping-cart-logo">
+                            <span class="cart-counter">0</span>
                         </a>
                     </div>               
                 </div>
