@@ -1,3 +1,34 @@
+<?php
+$error = false;
+$notExist = false;
+if(isset($_POST['submit'])) {
+    $password = $_POST['pass'];
+    $username = $_POST['name'];
+
+    if(file_exists('users/' . $username . '.xml')) {
+        $xml = new SimpleXMLElement('users/' . $username . '.xml', 0 , true);
+        if($password == $xml->password) {
+            session_start();
+            $fname = $xml->firstName;
+            $_SESSION['username'] = $username;
+            if($username == 'admin') {
+                header('Location: ../admin.php');
+                die;
+            }
+            setcookie('name', $fname, time() + 86400, '/');
+            header('Location: ../index.html');
+            die;
+
+        }
+        else {
+            $error = true;
+        }
+    }
+    else {
+        $notExist = true;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,7 +118,15 @@
                     </div>  
                     <div class="form-button-container-two">
                         <a href="../pages/createAccount.html" class="form-button">Create Account</a>
-                    </div>                
+                    </div>
+                    <?php 
+                        if($error) {
+                            echo '<p class="php-text-output">Invalid password, please try again. </p>';
+                        }
+                        if($notExist) {
+                            echo '<p class="php-text-output">Email does not exist. </p>';
+                        }
+                    ?>                
                 </form>
             </div>
         </section>

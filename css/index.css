@@ -845,10 +845,66 @@ html {
     border-radius: 8px;
     font-size: 22px;
     color: rgba(0,0,0,0.7);
+    text-align: center;
 }
 
+/* php */
+
+.logout-form {
+    display: none;
+}
+
+.logout-button {
+    width: 65px;
+    height: 35px;
+    border-radius: 8px;
+    border: 0px;
+    background-color: rgba(0,0,0,0.8);
+    color: rgba(255,255,255,0.85);
+}
+
+.register-errors {
+    color: rgba(255,20,20,0.8);
+    padding-bottom: 20px;
+}
+
+.php-text-output {
+    color: rgba(255, 20, 20, 0.8);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-text {
+    font-size: 17px;
+    width: 100%;
+}
+
+.logout-text {
+    color: rgba(0,0,0,0.8);
+    text-decoration: none;
+    border-radius: 6px;
+    padding: 4px;
+    background-color: rgba(255,255,255,0.7);
+    height: 30px;
+    text-align: center;
+}
 
 /* shopping cart */
+
+.emptyCart {
+    font-size: 24px;
+    color: rgba(0,0,0,0.85);
+    text-align: center;
+    margin-top: 110px;
+}
+
+.cart-counter {
+    background-color: #f0f0f0;
+    border-radius: 100px;
+    color: rgba(0,0,0,0.9);
+    padding: 2px;
+    margin-left: 7px;
+}
 
 .mycart-wrapper {
     display: grid;
@@ -891,6 +947,10 @@ html {
     grid-column-gap: 80px;
 }
 
+.remove-cart-item {
+    cursor: pointer;
+}
+
 .mycart-left {
     display: grid;
     grid-template-rows: 70px 70px 300px;
@@ -904,9 +964,9 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     border-radius: 12px;
-    overflow: scroll;
+    overflow-y: scroll;
     background-color: rgba(248, 248, 248, 0.74);
     border: 1px solid black;
 }
@@ -957,10 +1017,19 @@ html {
     padding-top: 30px;
 }
 
+.remove-from-cart {
+    grid-row: 1/3;
+    grid-column: 4/5;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
 .mycart-item-container {
     display: grid;
     grid-template-rows: 0.3fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     height: 200px;
     width: 100%;
     padding: 0 30px;

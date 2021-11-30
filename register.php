@@ -1,3 +1,40 @@
+<?php 
+
+
+    if(isset($_POST['submit'])) {
+        $first_name = $_POST['first-name'];
+        $last_name = $_POST['last-name'];
+        $p_code = $_POST['postal-code'];
+        $pass = $_POST['password'];
+        $c_pass = $_POST['c_password'];
+        $email = $_POST['email'];
+        
+        if(file_exists('./pages/users/' . $email . '.xml')) {
+            $errors[] = "That email address is already in use. Please try another one";
+        }
+
+        if($email == '' || $first_name == '' || $last_name == '' || $pass == '' || $c_pass == '') {
+            $errors[] = "One of the input fields is empty.";
+        }
+
+        if($c_pass != $pass) {
+            $errors[] = "Passwords don't match each other.";
+        }
+
+        if(count($errors) == 0) {
+            $xml = new SimpleXMLElement('<user></user>');
+            $xml->addChild('firstName', $first_name);
+            $xml->addChild('lastName', $last_name);
+            $xml->addChild('password', $pass);
+            $xml->addChild('email', $email);
+            $xml->asXML('./pages/users/' . $email . '.xml');
+            header('Location: pages/login.php');
+            die;
+        }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +51,7 @@
                 <a href="../index.html" class="navbar-logo-text">EcoMax</a>
             </div>
             <div class="signup-container">
-                <a href="./signUp.html" class="signup-button mobile">
+                <a href="./pages/signUp.html" class="signup-button mobile">
                     Sign In
                 </a>
                 <div class="open-close mobile">
@@ -44,9 +81,8 @@
                 </div>
                 <div class="shopping-cart-wrapper">
                     <a class="mycart-link" href="./myCart.html">
-<span class="mycart-title">My Cart</span>
-                        <img src="../../../../images/addToCart.svg" alt="" class="shopping-cart-logo">
-                        <span class="cart-counter">0</span>                        <img src="../images/addToCart.svg" alt="" class="shopping-cart-logo">
+                        <span class="mycart-title">My Cart</span>
+                        <img src="../images/addToCart.svg" alt="" class="shopping-cart-logo">
                     </a>
                 </div>                
             </div>
@@ -98,6 +134,18 @@
                     </div>
                     <div class="button-container">
                         <input type="submit" value="Submit" class="form-submit mobile" name="submit">
+                    </div>
+                    <div>
+                        <?php 
+                            if(count($errors) > 0) {
+                                echo '<ul>';
+                                foreach($errors as $e) {
+                                    echo '<li class="register-errors">' . $e . '</li>';
+                                }
+
+                                echo '</ul>';
+                            }   
+                        ?>
                     </div>
                 </form>
             </section>

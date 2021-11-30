@@ -14,9 +14,12 @@
                 <a href="index.html" class="navbar-logo-text">EcoMax</a>
             </div>
             <div class="signup-container">
-                <a href="./pages/signUp.html" class="signup-button mobile">
-                    Sign In
-                </a>
+                <?php
+                    session_start();
+                    $name = $_SESSION['username'];
+                    echo '<span class="login-text">Hello, ' . $name . '</span><a class="logout-text" href="logout.php">Logout</a> ' ;
+                ?>
+                
                 <div class="open-close mobile">
                     <img src="./images/mobileNav/open.svg" alt="" class="mobile-button mobile">
                     <img src="./images/mobileNav/close.svg" alt="" class="mobile-close mobile">
@@ -29,7 +32,7 @@
                     <li><a href="./index.html">Home</a></li>
                     <li><a href="./pages/aisles.html">Aisles</a></li>
                     <li><a href="">About</a></li>
-                    <li><a href="./pages/myCart.html">My Cart </a></li>
+                    <li><a href="./pages/myCart.html">My Cart</a></li>
                     <li><a href="./pages/signUp.html">Sign In</a></li>
                 </ul>
             </nav>
@@ -46,7 +49,6 @@
                     <a class="mycart-link" href="./pages/myCart.html">
                         <span class="mycart-title">My Cart</span>
                         <img src="./images/addToCart.svg" alt="" class="shopping-cart-logo">
-                        <span class="cart-counter">0</span>
                     </a>
                 </div>                
             </div>
@@ -64,8 +66,8 @@
         </div>
     </header>
     <main>
-        <main>
-    <script src="./js/userLogin.js"></script>
+    <main>
+    <script src="../../js/userLogin.js"></script>
         <div class="hero-wrapper tablet mobile">
             <div class="hero-main-container tablet mobile">
                 <div class="promocode-banner mobile">
@@ -192,7 +194,6 @@
         </div>
     </main>
     <script src="./js/navbar.js" ></script>
-    <script src="./js/addToCart.js"></script>
     <footer>
         <div class="footer-main-container mobile">
             <div class="footer-delivery">

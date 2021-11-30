@@ -8,15 +8,19 @@ let priceInKg = document.querySelector(".generic-product-pricing-text").innerHTM
 var str = finalPriceText.innerHTML.match(/\d+\.{0,1}\d{0,2}/);
 var finalPriceNumber= parseFloat(str[0]);
 const whiteToastPrice = 4.0;
+let idString = document.querySelector(".generic-product-title").innerHTML.match(/\w\w\w\w/)[0]
 
-let counter = localStorage.getItem('counter')
-quantityText.innerHTML = String(counter)
-console.log(String(counter))
-let tempPrice = finalPrice.innerHTML.match(/\d+\.{0,1}\d{0,2}/)
-finalPrice.innerHTML = finalPrice.innerHTML.replace(tempPrice[0], (parseFloat(counter)*finalPriceNumber).toFixed(2).toString());
+if(parseInt(localStorage.getItem(idString)) > 0) {
+    let counter = localStorage.getItem(idString)
+    quantityText.innerHTML = String(counter)
+    let tempPrice = finalPrice.innerHTML.match(/\d+\.{0,1}\d{0,2}/)
+    finalPrice.innerHTML = finalPrice.innerHTML.replace(tempPrice[0], (parseFloat(counter)*finalPriceNumber).toFixed(2).toString());    
+}
+else {
+    localStorage.setItem(idString, '0')
+}
 
 quantityButton[0].addEventListener('click', () => {
-    //alert(finalPriceNumber);
     numb = parseInt(quantityText.innerHTML) + 1
     let tempPrice = finalPrice.innerHTML.match(/\d+\.{0,1}\d{0,2}/)
     
@@ -33,8 +37,7 @@ quantityButton[0].addEventListener('click', () => {
         finalPrice.innerHTML = finalPrice.innerHTML.replace(tempPrice[0], (finalPriceNumber*parseFloat(numb)).toFixed(2).toString());
     }
     
-    localStorage.setItem('counter', numb);
-    console.log(localStorage.getItem('counter'))
+    localStorage.setItem(idString, numb);
     quantityText.innerHTML = numb.toString();
 })
 
@@ -58,8 +61,8 @@ quantityButton[1].addEventListener('click', () => {
         finalPrice.innerHTML = finalPrice.innerHTML.replace(tempPrice[0], (finalPriceNumber*parseFloat(numb)).toFixed(2).toString());
     }
 
-    localStorage.setItem('counter', numb);
-    console.log(localStorage.getItem('counter'))
+    localStorage.setItem(idString, numb);
+    console.log(localStorage.getItem(idString))
     quantityText.innerHTML = numb.toString();
 })
 
